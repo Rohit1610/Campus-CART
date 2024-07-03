@@ -1,12 +1,12 @@
 // import { useParams } from "react-router-dom";
-import express from "express";
-import dotenv from "dotenv";
+import express from 'express';
+import dotenv from 'dotenv';
 dotenv.config();
-import connectDB from "./config/db.js";
+import connectDB from './config/db.js';
 // import products from "./data/products.js";
-import productRoutes from "./routes/productRoutes.js";
-import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
-import cors from "cors";
+import productRoutes from './routes/productRoutes.js';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import cors from 'cors';
 const port = 5000;
 connectDB();
 
@@ -15,11 +15,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("API is running..");
+app.get('/', (req, res) => {
+  res.send('API is running..');
 });
 
-app.use("/api/products", productRoutes);
+app.use('/api/products', productRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
